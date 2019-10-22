@@ -6,7 +6,7 @@ import actions from './actions';
 import { get } from '../../../services/request';
 
 const blockPerHour = channel => dispatch =>
-	get(`/api/blocksByHour/${channel}/1`)
+	get(`api/blocksByHour/${channel}/1`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -25,7 +25,7 @@ const blockPerHour = channel => dispatch =>
 		});
 
 const blockPerMin = channel => dispatch =>
-	get(`/api/blocksByMinute/${channel}/1`)
+	get(`api/blocksByMinute/${channel}/1`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -44,7 +44,7 @@ const blockPerMin = channel => dispatch =>
 		});
 
 const changeChannel = channel => dispatch =>
-	get(`/api/changeChannel/${channel}`)
+	get(`api/changeChannel/${channel}`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -63,7 +63,7 @@ const changeChannel = channel => dispatch =>
 		});
 
 const channel = () => dispatch =>
-	get('/api/curChannel')
+	get('api/curChannel')
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -82,7 +82,7 @@ const channel = () => dispatch =>
 		});
 
 const channelList = () => dispatch =>
-	get('/api/channels')
+	get('api/channels')
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -101,7 +101,7 @@ const channelList = () => dispatch =>
 		});
 
 const dashStats = channel => dispatch =>
-	get(`/api/status/${channel}`)
+	get(`api/status/${channel}`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -119,7 +119,7 @@ const dashStats = channel => dispatch =>
 			console.error(error);
 		});
 const blockActivity = channel => dispatch =>
-	get(`/api/blockActivity/${channel}`)
+	get(`api/blockActivity/${channel}`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -143,7 +143,7 @@ const notification = notification => dispatch => {
 };
 
 const peerStatus = channel => dispatch =>
-	get(`/api/peersStatus/${channel}`)
+	get(`api/peersStatus/${channel}`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -162,7 +162,7 @@ const peerStatus = channel => dispatch =>
 		});
 
 const transactionByOrg = channel => dispatch =>
-	get(`/api/txByOrg/${channel}`)
+	get(`api/txByOrg/${channel}`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -181,7 +181,7 @@ const transactionByOrg = channel => dispatch =>
 		});
 
 const transactionPerHour = channel => dispatch =>
-	get(`/api/txByHour/${channel}/1`)
+	get(`api/txByHour/${channel}/1`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -200,7 +200,7 @@ const transactionPerHour = channel => dispatch =>
 		});
 
 const transactionPerMin = channel => dispatch =>
-	get(`/api/txByMinute/${channel}/1`)
+	get(`api/txByMinute/${channel}/1`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(

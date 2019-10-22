@@ -16,7 +16,7 @@ import actions from '../charts/actions';
 import Auth from '../../Auth';
 
 const login = ({ user, password }, network) => dispatch =>
-	post('/auth/login', { user, password, network })
+	post('auth/login', { user, password, network })
 		.then(resp => {
 			Auth.authenticateUser(resp.token);
 			dispatch(errorAction(null));
@@ -31,7 +31,7 @@ const login = ({ user, password }, network) => dispatch =>
 		});
 
 const network = () => dispatch =>
-	get('/auth/networklist', {})
+	get('auth/networklist', {})
 		.then(({ networkList }) => {
 			const networks = networkList.map(network => network[0]);
 			dispatch(networkAction({ networks }));
@@ -43,7 +43,7 @@ const network = () => dispatch =>
 		});
 
 const register = user => dispatch =>
-	post('/api/register', { ...user })
+	post('api/register', { ...user })
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(

@@ -26,7 +26,7 @@ const adminroutes = async function(router, platform) {
 	 */
 
 	router.post(
-		'/register',
+		'register',
 		responder(async req => {
 			const reqUser = await new User(req.body).asJson();
 			return await proxy.register(reqUser);

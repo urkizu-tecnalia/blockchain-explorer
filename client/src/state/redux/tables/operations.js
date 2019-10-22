@@ -5,7 +5,7 @@ import actions from './actions';
 import { get } from '../../../services/request';
 
 const blockList = channel => dispatch =>
-	get(`/api/blockAndTxList/${channel}/0`)
+	get(`api/blockAndTxList/${channel}/0`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -23,7 +23,7 @@ const blockList = channel => dispatch =>
 			console.error(error);
 		});
 const blockListSearch = (channel, query) => dispatch =>
-	get(`/api/blockAndTxList/${channel}/0?${query}`)
+	get(`api/blockAndTxList/${channel}/0?${query}`)
 		.then(resp => {
 			dispatch(actions.getBlockListSearch(resp));
 		})
@@ -32,7 +32,7 @@ const blockListSearch = (channel, query) => dispatch =>
 		});
 
 const chaincodeList = channel => dispatch =>
-	get(`/api/chaincode/${channel}`)
+	get(`api/chaincode/${channel}`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -52,7 +52,7 @@ const chaincodeList = channel => dispatch =>
 
 // table channel
 const channels = () => dispatch =>
-	get('/api/channels/info')
+	get('api/channels/info')
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -71,7 +71,7 @@ const channels = () => dispatch =>
 		});
 
 const peerList = channel => dispatch =>
-	get(`/api/peersStatus/${channel}`)
+	get(`api/peersStatus/${channel}`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -90,7 +90,7 @@ const peerList = channel => dispatch =>
 		});
 
 const transaction = (channel, transactionId) => dispatch =>
-	get(`/api/transaction/${channel}/${transactionId}`)
+	get(`api/transaction/${channel}/${transactionId}`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
@@ -109,7 +109,7 @@ const transaction = (channel, transactionId) => dispatch =>
 		});
 
 const transactionListSearch = (channel, query) => dispatch =>
-	get(`/api/txList/${channel}/0/0?${query}`)
+	get(`api/txList/${channel}/0/0?${query}`)
 		.then(resp => {
 			dispatch(actions.getTransactionListSearch(resp));
 		})
@@ -118,7 +118,7 @@ const transactionListSearch = (channel, query) => dispatch =>
 		});
 
 const transactionList = channel => dispatch =>
-	get(`/api/txList/${channel}/0/0/`)
+	get(`api/txList/${channel}/0/0/`)
 		.then(resp => {
 			if (resp.status === 500) {
 				dispatch(
